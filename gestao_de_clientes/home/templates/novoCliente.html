@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Cadastro de novo Usuario {% endblock %}
+
+{% block main %}
+    {% if msg %}
+        <p>{{ msg }}</p>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <form action="#" method="post" class="col-md-8 col-sm-8 col-lg-8">
+				<div class="row">
+					<fieldset class="col-md-6"> <!-- Dados Pessoais-->
+						<legend>Dados pessoais</legend>
+						<div class="form-group">
+							<label for="username">Username</label>
+							<input type="text" class="form-control" id="username" name="username" autofocus required>
+						</div> <!-- Div Campo Nome-->
+						<div class="form-group">
+							<label for="email">Email</label>
+							<div class="input-group">
+								<input type="email" class="form-control" id="email" name="email" placeholder="email@exemplo.com" required>
+							</div>
+						</div> <!-- Div Campo Email-->
+						<div class="form-group">
+							<label for="senha">Senha</label>
+							<input type="password" class="form-control" id="senha" name="senha" required>
+						</div> <!-- Div Campo CPF-->
+					</fieldset> <!-- Field Dados Pessoais-->
+				</div> <!-- Div row Formularios-->
+                <a href="/"><button class="btn btn-primary">Cancelar</button></a>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+			</form> <!-- Form col-sm-8-->
+
+    </form>
+
+{% endblock %}

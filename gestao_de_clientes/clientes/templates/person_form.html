@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Formulario Cliente {% endblock %}
+
+{% block main %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form|bootstrap }}
+        <a href="{%url 'person_list' %}"><button type="submit" class="btn btn-primary">Cancelar</button></a>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+    <br>
+    <br>
+
+{% endblock %}

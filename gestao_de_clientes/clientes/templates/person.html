@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Administração {% endblock %}
+
+{% block main %}
+
+    <ul class="list-group">
+        {% for pessoa in pessoas %}
+            <li class="list-group-item">
+                <a href="{% url 'person_update' pessoa.id %}">{{ pessoa.nome }}</a>
+                <a href="{% url 'person_delete' pessoa.id %}"><button class="btn btn-danger">Deletar</button></a>
+            </li>
+        {% endfor%}
+    </ul>
+
+    <a href="{% url 'person_new' %}">
+        <button class="btn btn-info">Novo Cliente</button>
+    </a>
+{% endblock %}
